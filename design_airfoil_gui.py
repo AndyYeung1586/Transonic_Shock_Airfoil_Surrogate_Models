@@ -27,15 +27,14 @@ root.title("Airfoil Characteristics Surrogate Model at Transonic Speed")
 # root.tk.call('set_theme', 'light')
 
 # Get surrogate models
-mod_folder = 'Model/aero_mod_f'
-model, xscaler, yscaler, pca = apm.get_model(mod_folder)
-
-classifier_folder = 'Model/classifier'
-class_mod, class_xsc = ps.get_model(classifier_folder, 'classifier')
-
-mod_name = 'regressor'
+apm_mod_folder = 'Model/APM'
+classifier_folder = 'Model/classifier_TSPM'
+mod_name = 'regressor_TSPM'
 lwr_mod_folder = f'Model/lwr_{mod_name}'
 upr_mod_folder = f'Model/upr_{mod_name}'
+
+model, xscaler, yscaler, pca = apm.get_model(apm_mod_folder)
+class_mod, class_xsc = ps.get_model(classifier_folder, 'classifier')
 lwr_reg_mod, lwr_reg_xsc = ps.get_model(lwr_mod_folder, 'regressor')
 upr_reg_mod, upr_reg_xsc = ps.get_model(upr_mod_folder, 'regressor')
 
@@ -68,6 +67,7 @@ for i, ax in enumerate(axs.flatten()):
     ax.grid(which='minor', linewidth=0.6, color='darkgray', zorder=1)
     ax.tick_params(labelsize=tick_font)
 
+plt.tight_layout()
 canvas = FigureCanvasTkAgg(fig, master=root)
 canvas_widget = canvas.get_tk_widget()
 # canvas_widget.grid(row=0, column=3, rowspan=10)
@@ -106,7 +106,7 @@ def update_plot():
     axs[0, 0].plot(x, y_l, 'r', linewidth=linewidth, label='Lower Surface')
     axs[0, 0].plot(x, y_u, 'g', linewidth=linewidth, label='Upper Surface')
     axs[0, 0].legend()
-    # plt.tight_layout()
+    plt.tight_layout()
     canvas.draw()
 
 

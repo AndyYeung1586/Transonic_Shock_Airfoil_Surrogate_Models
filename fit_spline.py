@@ -375,6 +375,6 @@ def eval_spline(original_curve, fitted_curve):
 
 if __name__ == '__main__':
     pd.options.mode.chained_assignment = None  # default='warn'
-    path = '../Transition_MFSM/Raw_Data/Airfoil/NACA64A015_0004.txt'
+    path = 'sample/NACA0009.dat'
     one_off(path)
     # main()
