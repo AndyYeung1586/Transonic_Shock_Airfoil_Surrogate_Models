@@ -16,7 +16,7 @@ Additional resources for the "Machine Learning Framework for Predicting Shock Lo
 
 To get a simple taste of the surrogate models, run `design_airfoil_gui.py`. This will launch a GUI and you can import airfoil coordinates files which will be used as input for the surrogate models. Note that the coordinates files **must** be in inverted Selig format. See `sample/NACA0012.dat` for the necessary airfoil coordinates format. 
 
-In addition to the coordinates files, user can also manually change the Chebyshev polynomial coefficients from the airfoil Shape function to design any airfoil they want. However, doing so may generate airfoils outside of the intended design space and cause the surrogate models to make erroneous prediction. To combat potential misuse of the surrogate models, users can  . Since the GUI is built on Tkinter library, the performance is far from ideal. See the section below to call the surrogate models efficiently without the use of a GUI.
+In addition to the coordinates files, user can also manually change the Chebyshev polynomial coefficients from the airfoil Shape function to design any airfoil they want. However, doing so may generate airfoils outside of the intended design space and cause the surrogate models to make erroneous prediction. To combat potential misuse of the surrogate models, users can check if the Chebyshev polynomials inhibits in the design space (Not added here yet). Since the GUI is built on Tkinter and Matplotlib libraries, the performance is far from ideal. See the section below to call the surrogate models efficiently without the use of a GUI.
 
 ## Training Surrogate Models
 
@@ -26,8 +26,8 @@ The training datasets are included under the `Datasets` directory. File names th
 
 ### Training
 
-Training take place in the `predict_shock.py` and `train_aerodynamics_prediction_model.py` for TSPM and APM respectively. Most of the hyperparamters, network architecture, and training data can be configured in the `main` function of their perspective Python file. 
+Training take place in the `predict_shock.py` and `train_aerodynamics_prediction_model.py` for TSPM and APM respectively. Most of the hyperparamters, network architecture, and training data can be configured in the `classifier_main()` and `regressor_main()` for TSPM `main()` for APM. Models are trained using `train_model()` and stored using `save_files()`.
 
 ### Light Weight Usage
 
-To call the surrogate model 
+To call the surrogate model without using GUI, see `predict_shock.py` and `train_aerodynamics_prediction_model.py`.
