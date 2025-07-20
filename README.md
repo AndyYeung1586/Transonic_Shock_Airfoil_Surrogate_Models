@@ -4,13 +4,13 @@ Additional resources for the "Machine Learning Framework for Predicting Shock Lo
 
 ## Prerequisite
 
-- Python 3.9 or later
-- joblib
-- matplotlib
-- numpy
-- panda
-- sklearn
-- torch (I am using v2.7.0)
+- [Python 3.9](https://www.python.org/downloads/) or later
+- [joblib](https://pypi.org/project/joblib/)
+- [matplotlib](https://pypi.org/project/matplotlib/)
+- [numpy](https://pypi.org/project/numpy/)
+- [panda](https://pypi.org/project/pandas/)
+- [sklearn](https://scikit-learn.org/stable/)
+- [torch](https://pytorch.org/) (I am using v2.7.0)
 
 ## Get Started
 
@@ -30,4 +30,4 @@ Training take place in the `predict_shock.py` and `train_aerodynamics_prediction
 
 ### Light Weight Usage
 
-To call the surrogate model without using GUI, see `predict_shock.py` and `train_aerodynamics_prediction_model.py`.
+To call the surrogate model without using GUI, see `predict_shock.py` and `train_aerodynamics_prediction_model.py`. A quick and efficient method of calling the models are included in the `main()` of code. 
